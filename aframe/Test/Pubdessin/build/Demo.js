@@ -34,13 +34,19 @@ var next = function(){
 };
 
 var clicked = function(obj){
-        console.log('good');
+    if(!obj.is('clicked')){
         var parent = obj.parentNode;
-        var Asset = document.createElement('a-text');
-        Asset.setAttribute('value','chaire');
+        var Asset = document.createElement('a-text');  
+        obj.addState('clicked');
+        Asset.setAttribute('value','广交会 我来了');
+        //Asset.setAttribute('color','black');
+        Asset.setAttribute('font','Pubdessin/src/text.fnt');
+        Asset.setAttribute('fontImage','Pubdessin/src/text.png');
         Asset.setAttribute('position',{x:0.5,y:1,z:0});
         parent.appendChild(Asset);
+        obj.setAttribute('animation-mixer','');
+    }
+    else
         console.log('clicked');
-       obj.setAttribute('animation-mixer','');
 };
 
