@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--a-frame基本库-->
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <!--../build/aframe-ar.js 负责调用a-scene中的相机选项-->
+        <script src="../build/aframe-ar.js"></script>
+         <!--aframe-extras.loaders.min.js负责调用3D model相关的属性 -->  
+        <script src="../build/aframe-extras.loaders.min.js"></script>
+        <!--aframe-event-set-component.min.js负责调用与常用事件相关的属性 -->  
+        <script src="../build/aframe-event-set-component.min.js"></script>        
+        <script>ARjs.Context.baseURL = '../../three.js/'</script>
+        <script src="Pubdessin/build/Demo.js"></script> 
+        <link rel="stylesheet" type="text/css" href="./Pubdessin/build/Demo.css">
+    </head>
+    
+    <body >
+        <div id="top">
+            <div class="top_logo">
+                <img src="Pubdessin/img/logo.png" alt="logo">
+            </div>
+            <div class="top_element">
+                <ul>
+                    <li><img src="Pubdessin/img/zoom1.png" onclick='more()' alt="放大"></li>
+                    <li><img src="Pubdessin/img/zoom3.png" onclick='less()' alt="缩小"></li>
+                    <li>
+                        <span id="next"  onclick='next()'>换一组</span> 
+                    </li>
+                </ul>
+            </div>
+        </div>   
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;trackingMethod: best;' >               
+            <a-assets>
+               <a-asset-item id="lounge_chair" src="Modele/lounge_chair/scene.gltf"></a-asset-item>
+               <a-asset-item id="plastic_chair" src="Modele/plastic_chair/scene.gltf"></a-asset-item>
+               <a-asset-item id="rustic_chair" src="Modele/rustic_chair/scene.gltf"></a-asset-item>
+               <a-asset-item id="drone" src="Modele/busterDrone/busterDrone.gltf"></a-asset-item> 
+           </a-assets> 
+           
+           <a-entity id="#rig" position="0 0 0" rotation="0 0 0">                           
+                <a-camera id="camera" reverse-mouse-drag="true">
+                     <a-marker id='marker_hiro' preset='hiro'>
+                        <a-entity class="model" gltf-model="#lounge_chair" scale="0.1 0.1 0.1" position = "0 0 0" onclick="clicked(this)" ></a-entity>
+                    </a-marker>
+                    <a-marker type="pattern" url="Pubdessin/src/pattern-marker.patt">                       
+                        <a-entity class="model" gltf-model="#plastic_chair" scale="0.02 0.02 0.02" position = "0 0 0"  onclick="clicked(this)" ></a-entity>
+                    </a-marker>    
+                    <a-entity cursor="rayOrigin: mouse" fuse="true" maxDistance="30" timeout="500" ></a-entity>
+                </a-camera>  
+           </a-entity>
+        </a-scene>
+    </body>
+</html>

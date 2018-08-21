@@ -1,0 +1,53 @@
+var pageSubmit = function(){  
+    /*
+    var nodes = document.querySelector('a-scene').childNodes;
+    var newArea = document.createElement('div');
+    console.log(nodes);
+    newArea.setAttribute('id','newArea');
+    for (var i =0;i<nodes.length;i++){
+           console.log(nodes[i]);
+           var newNode = nodes[i].cloneNode(true);
+           newArea.appendChild(newNode);
+    }
+ */
+    myWindow=window.open('','_blank','wirentdth=window.innerWidth,height=window.innerHeight');
+    /*
+   var doc = document.implementation.createHTMLDocument('Pubdessin.com');   
+   doc.body.appendChild(document.querySelector('head'));
+   doc.body.appendChild(document.querySelector('a-scene'));
+   console.log(doc);
+   console.log(document);
+  
+  myWindow.document.documentElement.replaceChild(document.querySelector('head'),myWindow.document.documentElement.querySelector('head'));
+  console.log( myWindow.document);   
+    myWindow.document.body.style.margin ='0px auto';
+    myWindow.document.body.style.overflow='true';
+    myWindow.document.body.style.hidden='true';
+    
+    myWindow.document.body.style.width='100%';
+    myWindow.document.body.style.height='100%';
+    
+   myWindow.document.body.appendChild(document.querySelector('a-scene'));
+   myWindow.document.body.appendChild(document.body.lastChild);
+    */
+   var options = { 
+            magin:'0px',
+            overflow:'false',
+            width:'100%',
+            height:'100%'    
+        }; 
+    var box = document.createElement('div');
+    var text = document.createElement('h3');
+    var link = document.createElement('a');   
+    text.innerText = 'Congratulation';
+    link.href = 'https://gaoxinteng.github.io/AR/aframe/Test/ARtest.html';
+    link.tag ='_top';
+    link.innerText = 'your design : https://gaoxinteng.github.io/AR/aframe/Test/ARtest.html';
+    link.style.color = '#2E2E2E';
+    box.appendChild(text);
+    box.appendChild(link);
+    box.style.top = 0.5*window.innerHeight+'px';
+    box.style.left = 0.5*window.innerWidth+'px';
+    myWindow.document.body.setAttribute('style', Object.keys(options).reduce((attribute, key) => `${attribute}${key}: ${options[key]}; `, "")) 
+    myWindow.document.body.appendChild(box);
+}; 
