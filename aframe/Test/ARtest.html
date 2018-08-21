@@ -18,12 +18,9 @@
             <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; trackingMethod: best' vr-mode-ui = "enabled：false">
                 <a-assets>
                         <a-asset-item id="drone" src="Modele/busterDrone/busterDrone.gltf"></a-asset-item>    
-                        <a-asset-item id="falo-obj" src="Modele/falo/sculpt.obj"></a-asset-item>
-                        <a-asset-item id="falo-mtl" src="Modele/falo/Autodesk123DSculpt.mtl"></a-asset-item>
                         <img id='360photo' src='360photo.jpg'>
                         <a-asset-item id="griffon-obj" src="Modele/griffon/source/griffon statue.obj"></a-asset-item>
                         <a-asset-item id="griffon-mtl" src="Modele/griffon/source/griffon statue.obj.mtl"></a-asset-item>
-                        <a-asset-item id="room" src="Modele/room/scene.gltf"></a-asset-item>
                         <a-asset-item id="lounge_chair" src="Modele/lounge_chair/scene.gltf"></a-asset-item>
                         <a-asset-item id="plastic_chair" src="Modele/plastic_chair/scene.gltf"></a-asset-item>
                         <a-asset-item id="rustic_chair" src="Modele/rustic_chair/scene.gltf"></a-asset-item>
@@ -33,7 +30,7 @@
                <a-entity gltf-model="#room" animation-mixer>                           
                 </a-entity>
                  <a-sky src="#360photo" radius="5"></a-sky>    
-                <a-entity obj-model="obj: #falo-obj; mtl: #falo-mtl" position="0 0 -10" rotation="90 0 0" scale="0.1 0.1 0.1"></a-entity>  
+                <a-entity obj-model="obj: #griffon-obj; mtl: #griffon-mtl" position="0 0 -10" rotation="90 0 0" scale="0.1 0.1 0.1"></a-entity>  
                 -->
                 <a-entity id="#rig" position="0 0 0" rotation="0 0 0">
                         <a-camera id="camera" reverse-mouse-drag="true">
