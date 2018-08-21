@@ -63,7 +63,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 		this.patternMarkers = {};
 		this.barcodeMarkers = {};
 		this.transform_mat = new Float32Array(16);
-                    
+
 		this.canvas = document.createElement('canvas');
 		this.canvas.width = w;
 		this.canvas.height = h;
@@ -5901,21 +5901,19 @@ ARjs.Source.prototype._initSourceVideo = function(onReady) {
 	domElement.src = this.parameters.sourceUrl
 
 	domElement.style.objectFit = 'initial'
-        
+
 	domElement.autoplay = true;
 	domElement.webkitPlaysinline = true;
 	domElement.controls = false;
 	domElement.loop = true;
-	domElement.muted = true;
-        
+	domElement.muted = true
 
 	// trick to trigger the video on android
 	document.body.addEventListener('click', function onClick(){
 		document.body.removeEventListener('click', onClick);
 		domElement.play()
 	})
-        
-        
+
 	domElement.width = this.parameters.sourceWidth
 	domElement.height = this.parameters.sourceHeight
 	domElement.style.width = this.parameters.displayWidth+'px'
@@ -6083,9 +6081,9 @@ ARjs.Source.prototype.domElementHeight = function(){
 ////////////////////////////////////////////////////////////////////////////////
 
 ARjs.Source.prototype.onResizeElement = function(){
-	var _this = this;
-	var screenWidth = window.innerWidth;
-	var screenHeight = window.innerHeight;
+	var _this = this
+	var screenWidth = window.innerWidth
+	var screenHeight = window.innerHeight
 
 	// sanity check
 	console.assert( arguments.length === 0 )
@@ -7161,8 +7159,8 @@ ARjs.TangoVideoMesh = function(arSession){
 	// Create the see through camera scene and camera
 	var sceneOrtho = new THREE.Scene()
 	var cameraOrtho = new THREE.OrthographicCamera( -1, 1, 1, -1, 0, 100 )		
-        this._sceneOrtho = sceneOrtho
-        this._cameraOrtho = cameraOrtho
+this._sceneOrtho = sceneOrtho
+this._cameraOrtho = cameraOrtho
 
 	// tango only - init cameraMesh
 	arContext.addEventListener('initialized', function(event){
