@@ -1,5 +1,6 @@
 # Pubdessin.com
 
+![https://github.com/gaoxinteng/AR/tree/master/aframe/Test/Pubdessin/img/logo.png]
 ## 更新 
 
 - 31/07/2018 aframe/Test/index.html 更新 
@@ -14,14 +15,8 @@
 3. ### 平台 [https://gaoxinteng.github.io/AR/aframe/Test/index.html]
 
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
+
 
