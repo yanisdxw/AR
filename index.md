@@ -1,6 +1,6 @@
 # Pubdessin.com
 
-![logo](https://github.com/gaoxinteng/AR/tree/master/aframe/Test/Pubdessin/img/logo.png)
+![logo](https://gaoxinteng.github.io/AR/aframe/Test/Pubdessin/img/logo.png)
 ## 更新 
 
 - 31/07/2018 aframe/Test/index.html 更新 
