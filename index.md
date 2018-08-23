@@ -13,6 +13,7 @@
 1. ###  [广交会](https://gaoxinteng.github.io/AR/aframe/Test/Demo.html)
 2. ### [测试](https://gaoxinteng.github.io/AR/aframe/Test/ARtest.html)
 3. ### [平台](https://gaoxinteng.github.io/AR/aframe/Test/index.html)
+4. ### [测试2](https://gaoxinteng.github.io/AR/test.php)
 
 
 
