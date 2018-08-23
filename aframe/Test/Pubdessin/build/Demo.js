@@ -42,6 +42,7 @@ var clicked = function(obj){
     if(obj.is('clicked')){
        var parent = obj.parentNode;
        parent.removeChild(parent.querySelector('a-text'));
+       obj.pause();
        obj.removeState('clicked');
        console.log('unclicked');   
     }
@@ -49,6 +50,7 @@ var clicked = function(obj){
         var parent = obj.parentNode;
         var Asset = document.createElement('a-text');  
         obj.addState('clicked');
+        obj.play();
         Asset.setAttribute('value','广交会 我来了');
         //Asset.setAttribute('color','black');
         Asset.setAttribute('font','Pubdessin/src/text.fnt');
