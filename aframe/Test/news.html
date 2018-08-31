@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>股市一览</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+         <script src="../build/aframe-extras.loaders.min.js"></script>    
+        <script src="Pubdessin/build/news.js"></script> 
+        <link rel="stylesheet" type="text/css" href="./Pubdessin/build/Demo.css">     
+    </head>
+    <body>
+        <div id="top">
+            <div class="top_logo">
+                <img src="Pubdessin/img/logo.png" alt="主页">
+            </div>
+            <div class="top_element">
+                <ul>
+                    <li><img src="Pubdessin/img/zoom1.png" onclick='enlarge()' alt="放大"></li>
+                    <li><img src="Pubdessin/img/zoom3.png" onclick='reduce()' alt="缩小"></li>
+                    <li>
+                        <span id="next"  onclick='next()'>换一组</span> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a-scene>
+            <a-assets>
+                <a-asset-item id="drone" src="Modele/busterDrone/busterDrone.gltf"></a-asset-item> 
+            </a-assets>
+            <a-sky color="#ECECEC"></a-sky>
+            <a-camera>
+                <a-entity gltf-model="#drone"  position="0 0.5 -2" animation-mixer></a-entity>  
+            </a-camera>
+        </a-scene>
+
+    </body>
+</html>
