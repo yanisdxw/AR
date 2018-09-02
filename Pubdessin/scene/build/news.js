@@ -14,16 +14,15 @@ var modelList = new Array(
         {src:"#vss",position: {x:0,y:-1,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.002,y:0.002,z:0.002},onclick:'clicked()'}
     );
 var infoList = new Array(
-        {text_title:"value:AKM",text_type:"value:步枪",text_content:"value:伤害高,后坐力较高,连发时很飘"},
-        {text_title:"value:M416",text_type:"value:步枪",text_content:"value:裸枪后坐力大、冲击力小，满配后稳定性高、后坐力小"},
-        {text_title:"value:M16A4",text_type:"value:步枪",text_content:"value:射速快，后坐力较低，子弹初速高，下坠较慢"},
-        {text_title:"value:SCAR-L",text_type:"value:步枪",text_content:"value:伤害较，射程较近，射击后坐力小"},
-        {text_title:"value:AUG",text_type:"value:步枪",text_content:"value:射速高、后坐力小,子弹下坠明显"},
-        {text_title:"value:UPM9",text_type:"value:冲锋枪",text_content:"value:射速慢，伤害高"},
-        {text_title:"value:M24",text_type:"value:狙击枪",text_content:"value:伤害，性价比最高的拉栓狙，子弹容易获取"},
-        {text_title:"value:VSS",text_type:"value:狙击枪",text_content:"value:声音小难被察觉，子弹初速极慢，伤害非常低，射程距离近"}
+        {text_title:"AKM",text_type:"步枪",text_content:"伤害高,后坐力较高,连发时很飘"},
+        {text_title:"M416",text_type:"步枪",text_content:"裸枪后坐力大、冲击力小，满配后稳定性高、后坐力小"},
+        {text_title:"M16A4",text_type:"步枪",text_content:"射速快，后坐力较低，子弹初速高，下坠较慢"},
+        {text_title:"SCAR-L",text_type:"步枪",text_content:"伤害较，射程较近，射击后坐力小"},
+        {text_title:"AUG",text_type:"步枪",text_content:"射速高、后坐力小,子弹下坠明显"},
+        {text_title:"UPM9",text_type:"冲锋枪",text_content:"射速慢，伤害高"},
+        {text_title:"M24",text_type:"狙击枪",text_content:"伤害，性价比最高的拉栓狙，子弹容易获取"},
+        {text_title:"VSS",text_type:"狙击枪",text_content:"声音小难被察觉，子弹初速极慢，伤害非常低，射程距离近"}
     );
-
 id=0;
 fin = true;
 var isPC = function(){    
@@ -47,14 +46,20 @@ var next = function(){
         var Title = document.getElementById('Title');
         var Type = document.getElementById('Type');
         var Content = document.getElementById('Content');
+         
         id=id+1; 
         Model.setAttribute('gltf-model',modelList[id].src);
         for(i=1;i<=Object.keys(modelList[id]).length-1;i++){
           Model.setAttribute(Object.keys(modelList[id])[i],Object.values(modelList[id])[i]);       
         }
+         Title.innerHTML=infoList[id].text_title;
+        Type.innerHTML=infoList[id].text_type;
+        Content.innerHTML=infoList[id].text_content;
+        /**S
         Title.setAttribute("text",infoList[id].text_title);
         Type.setAttribute("text",infoList[id].text_type);
         Content.setAttribute("text",infoList[id].text_content);
+        **/
     }
 };
 var last = function(){
@@ -64,6 +69,7 @@ var last = function(){
     else{
         var Model = document.getElementById('Model');
         var Title = document.getElementById('Title');
+       
         var Type = document.getElementById('Type');
         var Content = document.getElementById('Content');
         id=id-1; 
@@ -71,10 +77,14 @@ var last = function(){
         for(i=1;i<=Object.keys(modelList[id]).length-1;i++){
           Model.setAttribute(Object.keys(modelList[id])[i],Object.values(modelList[id])[i]);       
         }
+        Title.innerHTML=infoList[id].text_title;
+        Type.innerHTML=infoList[id].text_type;
+        Content.innerHTML=infoList[id].text_content;
+        /**
         Title.setAttribute("text",infoList[id].text_title);
         Type.setAttribute("text",infoList[id].text_type);
         Content.setAttribute("text",infoList[id].text_content);
-       
+       **/
     }
 };
 
