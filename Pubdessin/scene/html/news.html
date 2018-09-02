@@ -33,7 +33,7 @@ and open the template in the editor.
         margin-top : 50px
     }
     </style>
-    <body >
+    <body onload="isPC()">
         <div id="top">
             <div class="top_logo">
                 <img src="../src/img/logo.png" alt="主页">
@@ -47,8 +47,8 @@ and open the template in the editor.
             </div>
         </div>
         <div id="bouton">
-            <img style="background:#4a4a4a;position:absolute;top:90%;left:50%;height:54px;  z-index:99"  src="../src/img/icon/rotate.png" id="rotate" onmousedown='rotate()' alt="旋转">
-            <img style="background:#4a4a4a;position:absolute;top:50%;left:95%;height:36px;z-index:99"  src="../src/img/icon/next.png" id="next" onclick='next()' alt="下一个">
+            <img style="background:#4a4a4a;position:absolute;top:90%;left:45%;height:54px;  z-index:99"  src="../src/img/icon/rotate.png" id="rotate" touchstart='rotate()' alt="旋转">
+            <img style="background:#4a4a4a;position:absolute;top:50%;right:5%;height:36px;z-index:99"  src="../src/img/icon/next.png" id="next" onclick='next()' alt="下一个">
             <img style="background:#4a4a4a;position:absolute;top:50%;left:5%;height:36px;z-index:99"  src="../src/img/icon/last.png" id="last" onclick='last()' alt="上一个">
         </div>
         <div id="text">

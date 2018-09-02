@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var modelList = new Array(
+modelList = new Array(
         {src:"#akm",position: {x:0,y:-0.5,z:-3},rotation:{x:0,y:00,z:0} ,scale:{x:0.02,y:0.02,z:0.02},onclick:'clicked()'},
         {src:"#m416",position: {x:1,y:0.5,z:-3},rotation:{x:0,y:270,z:0} ,scale:{x:0.06,y:0.06,z:0.06},onclick:'clicked()'},
         {src:"#m4a1",position: {x:-1,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:2.3,y:2.3,z:2.3},onclick:'clicked()'},
@@ -13,7 +13,7 @@ var modelList = new Array(
         {src:"#m24",position: {x:0.5,y:0,z:-3},rotation:{x:0,y:-90,z:0} ,scale:{x:0.04,y:0.04,z:0.04},onclick:'clicked()'},
         {src:"#vss",position: {x:0,y:-1,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.002,y:0.002,z:0.002},onclick:'clicked()'}
     );
-var infoList = new Array(
+infoList = new Array(
         {text_title:"AKM",text_type:"步枪",text_content:"伤害高,后坐力较高,连发时很飘"},
         {text_title:"M416",text_type:"步枪",text_content:"裸枪后坐力大、冲击力小，满配后稳定性高、后坐力小"},
         {text_title:"M16A4",text_type:"步枪",text_content:"射速快，后坐力较低，子弹初速高，下坠较慢"},
@@ -25,16 +25,22 @@ var infoList = new Array(
     );
 id=0;
 fin = true;
+eternal="";
+
 var isPC = function(){    
     if ( /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
-        init();
+        eternal="mobile";
     }
     else{
+        eternal="pc";
+    }
+    console.log(eternal)
+        /**
         Source=document.body.firstChild.data;
         document.open();
         document.close();
         document.body.innerHTML=Source;
-    };
+        **/
 };
 
 var next = function(){    
@@ -89,11 +95,15 @@ var last = function(){
 };
 
 var rotate = function(){
+    if(eternal==="mobile")
+        funct =  "touchend";
+    else
+        funct =  "mouseup";
     ID=setInterval(function() { 
         var Model = document.getElementById('Model');
         rotation = Model.getAttribute("rotation");
         Model.setAttribute("rotation",{x:rotation.x,y:rotation.y+1,z:rotation.z});},10);
-    addEventListener("mouseup",function(){
+    addEventListener(funct,function(){
         clearInterval(ID);
     });
 };
