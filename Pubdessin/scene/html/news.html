@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>绝地求生--你最爱的武器是什么？</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="../build/arjs/aframe.min.js"></script>
+        <script src="../build/arjs/aframe-animation-component.min.js"></script>
+        <script src="../build/arjs/aframe-extras.loaders.min.js"></script>    
+        <script src="../build/news.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../build/Demo.css">     
+    </head>
+    
+    <style type="text/css">
+    html,body{
+        padding:0px;
+        margin:0px;
+        overflow: hidden; 
+        width:100%; 
+        height:100% 
+    }
+    #scene {
+        position: relative;
+        height: 95%;
+        width: 100%;
+        margin-left: 0%;
+        margin-top : 50px
+    }
+    </style>
+    <body >
+        <div id="top">
+            <div class="top_logo">
+                <img src="../src/img/logo.png" alt="主页">
+                <p>PUBDESSIN</p>
+            </div>
+            <div class="top_element">
+                <ul>
+                    <li><img src="../src/img/icon/zoom1.png" onclick='enlarge()' alt="放大"></li>
+                    <li><img src="../src/img/icon/zoom3.png" onclick='reduce()' alt="缩小"></li>
+                </ul>
+            </div>
+        </div>
+        <div id="bouton">
+            <img style="background:#4a4a4a;position:absolute;top:90%;left:50%;height:54px;  z-index:99"  src="../src/img/icon/rotate.png" id="rotate" onmousedown='rotate()' alt="旋转">
+            <img style="background:#4a4a4a;position:absolute;top:50%;left:95%;height:36px;z-index:99"  src="../src/img/icon/next.png" id="next" onclick='next()' alt="下一个">
+            <img style="background:#4a4a4a;position:absolute;top:50%;left:5%;height:36px;z-index:99"  src="../src/img/icon/last.png" id="last" onclick='last()' alt="上一个">
+        </div>
+        <!--
+        <iframe allowvr="yes" src="https://pubdessin.com/aframe/Test/Demo.html" style="width: 300px;height: 480px">          
+        </iframe>
+        -->
+        
+        <div id="scene" >
+            <!--<a-scene embedded  arjs='sourceType: webcam; debugUIEnabled: false; trackingMethod: best'>-->
+            <a-scene>
+                <a-assets>
+                    <a-asset-item id="akm" src="../src/model/Gun/ak47/scene.gltf"></a-asset-item>
+                    <a-asset-item id="aug" src="../src/model/Gun/aug/scene.gltf"></a-asset-item>
+                    <a-asset-item id="scar" src="../src/model/Gun/scar/scene.gltf"></a-asset-item>
+                    <a-asset-item id="ump9" src="../src/model/Gun/ump9/scene.gltf"></a-asset-item>
+                    <a-asset-item id="m416" src="../src/model/Gun/m416/scene.gltf"></a-asset-item>
+                    <a-asset-item id="m4a1" src="../src/model/Gun/m16a4/scene.gltf"></a-asset-item>
+                    <a-asset-item id="vss" src="../src/model/Gun/vss/scene.gltf"></a-asset-item>                   
+                    <a-asset-item id="m24" src="../src/model/Gun/m24/scene.gltf"></a-asset-item>
+                    <img id='ground' src='../src/img/background/battlegrounds.jpg'>
+                    <a-mixin id ="title" position="0.5 1 -1.6"  text="opacity:0;anchor:left;aligne:left;width: 5; font:../src/text/text.fnt; fontimage:../src/text/text.png"></a-mixin>
+                    <a-mixin id="type" position="0.5 0.8 -1.6" text=" opacity:0;anchor:left;aligne:left;width: 3; font:../src/text/text.fnt; fontimage:../src/text/text.png"></a-entity>
+                    <a-mixin id="content" position="0.5 0.65 -1.6" text="opacity:0;anchor:left;aligne:left; width: 2; font:../src/text/text.fnt; fontimage:../src/text/text.png"></a-entity>                                                            
+                    
+                </a-assets>
+                
+                <a-sky src="#ground" radius="10000"></a-sky>
+                <a-sky color="#4a4a4a" radius="8000" opacity="0.5"></a-sky>
+                <a-entity id="#rig" position="0 0 0" rotation="0 0 0">
+                    <a-camera  position="0 1.5 0">           
+                        <!-- 
+                            <a-animation attribute = "rotation"  direction="normal" dur = "5000" fill="both" to="0 360 0" repeat="indefinite"></a-animation>                        
+                        -->
+                        <a-entity id="Model" gltf-model="#akm"  position="0 -0.5 -3"  rotation="0 0 0"  scale="0.02 0.02 0.02" onclick="">
+                            
+                        </a-entity>  
+                        <a-light type="spot" position="2 -1.5 0" intensity="2" rotation="45 0 90">                                                    
+                        </a-light>
+                        <a-light type="spot" position="-2 -1.5 0"  intensity="2" rotation="0 -45 90">                                                          
+                        </a-light>
+                        <a-light type="spot" position="2 1.5 0"  intensity="2" rotation="0 45 90">                                                         
+                        </a-light>
+                        <a-light type="spot" position="-2 1.5 0"  intensity="2" rotation="-45 0 90">                                  
+                        </a-light> 
+                        
+                        <a-entity id="Title" mixin="title" text="value:AKM" animation="property: text.opacity; begin:2000; dur: 1000;
+                           from:0;to:1">                      
+                           
+                        </a-entity>
+                        <a-entity id="Type" mixin="type" text="value:步枪" animation="property: text.opacity; begin:2000; dur: 1000;
+                           from:0;to:1">
+                        </a-entity>
+                        <a-entity id="Content" mixin="content" text="value:伤害高,后坐力较高,连发时很飘" animation="property: text.opacity; begin:mousedown; dur: 1000;
+                           from:0;to:1;repeat:0">
+                        </a-entity>
+                        <a-entity cursor="rayOrigin: mouse" fuse="true" maxDistance="30" timeout="500" ></a-entity>                      
+                    </a-camera>
+                </a-entity>
+            </a-scene>
+       </div>
+        
+        <!--
+         <a-sky color="#4a4a4a"></a-sky>
+        -->
+    </body>
+</html>
