@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 modelList = new Array(
-        {src:"#akm",position: {x:0,y:-0.5,z:-3},rotation:{x:0,y:00,z:0} ,scale:{x:0.02,y:0.02,z:0.02},onclick:'clicked()'},
-        {src:"#m416",position: {x:1,y:0.5,z:-3},rotation:{x:0,y:270,z:0} ,scale:{x:0.06,y:0.06,z:0.06},onclick:'clicked()'},
-        {src:"#m4a1",position: {x:-1,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:2.3,y:2.3,z:2.3},onclick:'clicked()'},
-        {src:"#scar",position: {x:0,y:-0.5,z:-3},rotation:{x:0,y:180,z:0} ,scale:{x:0.06,y:0.06,z:0.06},onclick:'clicked()'},
-        {src:"#qbz",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.15,y:0.15,z:0.15},onclick:'clicked()'},
-        {src:"#ump9",position: {x:-0.5,y:-0.5,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.04,y:0.04,z:0.04},onclick:'clicked()'},
+        {src:"#akm",position: {x:0,y:0,z:-3},rotation:{x:0,y:00,z:0} ,scale:{x:0.005,y:0.005,z:0.005},onclick:'clicked()'},
+        {src:"#m416",position: {x:0.5,y:0,z:-3},rotation:{x:0,y:270,z:0} ,scale:{x:0.015,y:0.015,z:0.015},onclick:'clicked()'},
+        {src:"#m4a1",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.575,y:0.575,z:0.575},onclick:'clicked()'},
+        {src:"#scar",position: {x:0,y:0,z:-3},rotation:{x:0,y:180,z:0} ,scale:{x:0.015,y:0.015,z:0.015},onclick:'clicked()'},
+        {src:"#qbz",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.15,y:0.0375,z:0.0375},onclick:'clicked()'},
+        {src:"#ump9",position: {x:0,y:0,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.01,y:0.01,z:0.01},onclick:'clicked()'},
         /**
         {src:"#m24",position: {x:0.5,y:0,z:-3},rotation:{x:0,y:-90,z:0} ,scale:{x:0.04,y:0.04,z:0.04},onclick:'clicked()'},
         {src:"#vss",position: {x:0,y:-1,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.002,y:0.002,z:0.002},onclick:'clicked()'}
@@ -28,6 +28,9 @@ infoList = new Array(
         {text_title:"VSS",text_type:"狙击枪",text_content:"声音小难被察觉，子弹初速极慢，伤害非常低，射程距离近"}
         **/
     );
+videoList = new Array(
+    "#video_akm","#video_m416","#video_m4a1","#video_scar","#video_qbz","#video_ump9");
+    
 id=0;
 fin = true;
 terminal="";
@@ -51,14 +54,14 @@ var isPC = function(){
 
 var next = function(){    
     if(id+1>modelList.length-1){
-      console.log("it is the last");
+     alert("it is the first");
     }
     else{
         var Model = document.getElementById('Model');
         var Title = document.getElementById('Title');
         var Type = document.getElementById('Type');
         var Content = document.getElementById('Content');
-         
+        var Video = document.querySelector("a-video");
         id=id+1; 
         Model.setAttribute('gltf-model',modelList[id].src);
         for(i=1;i<=Object.keys(modelList[id]).length-1;i++){
@@ -67,6 +70,7 @@ var next = function(){
         Title.innerHTML=infoList[id].text_title;
         Type.innerHTML=infoList[id].text_type;
         Content.innerHTML=infoList[id].text_content;
+        Video.setAttribute("src",videoList[id]);
         /**S
         Title.setAttribute("text",infoList[id].text_title);
         Type.setAttribute("text",infoList[id].text_type);
@@ -81,9 +85,9 @@ var last = function(){
     else{
         var Model = document.getElementById('Model');
         var Title = document.getElementById('Title');
-       
         var Type = document.getElementById('Type');
         var Content = document.getElementById('Content');
+        var Video = document.getElementById("video");
         id=id-1; 
         Model.setAttribute('gltf-model',modelList[id].src);
         for(i=1;i<=Object.keys(modelList[id]).length-1;i++){
@@ -92,6 +96,7 @@ var last = function(){
         Title.innerHTML=infoList[id].text_title;
         Type.innerHTML=infoList[id].text_type;
         Content.innerHTML=infoList[id].text_content;
+        Video.setAttribute("src",videoList[id]);
         /**
         Title.setAttribute("text",infoList[id].text_title);
         Type.setAttribute("text",infoList[id].text_type);
@@ -145,7 +150,3 @@ var reduce = function(){
 var action = function(){
     return video();
 };
-
-var video = function(){
-    var Video = document.createElement('a-video');
-} 
