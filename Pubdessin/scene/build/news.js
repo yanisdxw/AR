@@ -8,33 +8,39 @@ modelList = new Array(
         {src:"#m416",position: {x:1,y:0.5,z:-3},rotation:{x:0,y:270,z:0} ,scale:{x:0.06,y:0.06,z:0.06},onclick:'clicked()'},
         {src:"#m4a1",position: {x:-1,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:2.3,y:2.3,z:2.3},onclick:'clicked()'},
         {src:"#scar",position: {x:0,y:-0.5,z:-3},rotation:{x:0,y:180,z:0} ,scale:{x:0.06,y:0.06,z:0.06},onclick:'clicked()'},
-        {src:"#aug",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.15,y:0.15,z:0.15},onclick:'clicked()'},
+        {src:"#qbz",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.15,y:0.15,z:0.15},onclick:'clicked()'},
         {src:"#ump9",position: {x:-0.5,y:-0.5,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.04,y:0.04,z:0.04},onclick:'clicked()'},
+        /**
         {src:"#m24",position: {x:0.5,y:0,z:-3},rotation:{x:0,y:-90,z:0} ,scale:{x:0.04,y:0.04,z:0.04},onclick:'clicked()'},
         {src:"#vss",position: {x:0,y:-1,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.002,y:0.002,z:0.002},onclick:'clicked()'}
+        **/
+               
     );
 infoList = new Array(
         {text_title:"AKM",text_type:"步枪",text_content:"伤害高,后坐力较高,连发时很飘"},
         {text_title:"M416",text_type:"步枪",text_content:"裸枪后坐力大、冲击力小，满配后稳定性高、后坐力小"},
         {text_title:"M16A4",text_type:"步枪",text_content:"射速快，后坐力较低，子弹初速高，下坠较慢"},
         {text_title:"SCAR-L",text_type:"步枪",text_content:"伤害较，射程较近，射击后坐力小"},
-        {text_title:"AUG",text_type:"步枪",text_content:"射速高、后坐力小,子弹下坠明显"},
-        {text_title:"UPM9",text_type:"冲锋枪",text_content:"射速慢，伤害高"},
+        {text_title:"QBZ",text_type:"步枪",text_content:"射速稍慢、后坐力小"},
+        {text_title:"UPM9",text_type:"冲锋枪",text_content:"射速慢，伤害高"}
+        /**
         {text_title:"M24",text_type:"狙击枪",text_content:"伤害，性价比最高的拉栓狙，子弹容易获取"},
         {text_title:"VSS",text_type:"狙击枪",text_content:"声音小难被察觉，子弹初速极慢，伤害非常低，射程距离近"}
+        **/
     );
 id=0;
 fin = true;
-eternal="";
+terminal="";
+funct="";
+etat_rotate=false;
 
 var isPC = function(){    
     if ( /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
-        eternal="mobile";
+        terminal="mobile";
     }
     else{
-        eternal="pc";
+        terminal="pc";
     }
-    console.log(eternal)
         /**
         Source=document.body.firstChild.data;
         document.open();
@@ -58,7 +64,7 @@ var next = function(){
         for(i=1;i<=Object.keys(modelList[id]).length-1;i++){
           Model.setAttribute(Object.keys(modelList[id])[i],Object.values(modelList[id])[i]);       
         }
-         Title.innerHTML=infoList[id].text_title;
+        Title.innerHTML=infoList[id].text_title;
         Type.innerHTML=infoList[id].text_type;
         Content.innerHTML=infoList[id].text_content;
         /**S
@@ -70,7 +76,7 @@ var next = function(){
 };
 var last = function(){
     if(id-1<0){
-      console.log("it is the last");
+      alert("it is the last");
     }
     else{
         var Model = document.getElementById('Model');
@@ -93,12 +99,28 @@ var last = function(){
        **/
     }
 };
-
-var rotate = function(){
-    if(eternal==="mobile")
+var auto_rotate = function(){
+    etat_rotate=!etat_rotate;
+    if(terminal==="mobile")
         funct =  "touchend";
     else
         funct =  "mouseup";
+    if(etat_rotate){
+        ID=setInterval(function() { 
+            var Model = document.getElementById('Model');
+            rotation = Model.getAttribute("rotation");
+            Model.setAttribute("rotation",{x:rotation.x,y:rotation.y+1,z:rotation.z});},10);
+    }
+    else
+        clearInterval(ID);    
+};
+
+var rotate = function(){
+    if(terminal==="mobile")
+        funct =  "touchend";
+    else
+        funct =  "mouseup";
+    
     ID=setInterval(function() { 
         var Model = document.getElementById('Model');
         rotation = Model.getAttribute("rotation");
@@ -119,3 +141,11 @@ var reduce = function(){
     size = Model.getAttribute("scale");
     Model.setAttribute('scale', {x:size.x/1.1,y:size.y/1.1,z:size.z/1.1});
 };
+
+var action = function(){
+    return video();
+};
+
+var video = function(){
+    var Video = document.createElement('a-video');
+} 

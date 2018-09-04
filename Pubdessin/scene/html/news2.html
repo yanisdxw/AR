@@ -32,6 +32,11 @@ and open the template in the editor.
         margin-left: 0%;
         margin-top : 50px
     }
+    a-scene {
+        position: absolute;
+        height: 100%;
+        width:100%;
+      }
     </style>
     <body onload="isPC()">
         <div id="top">
@@ -47,7 +52,7 @@ and open the template in the editor.
             </div>
         </div>
         <div id="bouton">
-            <img style="background:#4a4a4a;position:absolute;top:90%;left:45%;height:54px;  z-index:99"  src="../src/img/icon/rotate.png" id="rotate" onmousedown='rotate()' alt="旋转">
+            <img style="background:#4a4a4a;position:absolute;top:90%;left:45%;height:54px;  z-index:99"  src="../src/img/icon/rotate.png" id="rotate" onclick ="auto_rotate()" alt="旋转">
             <img style="background:#4a4a4a;position:absolute;top:50%;right:5%;height:36px;z-index:99"  src="../src/img/icon/next.png" id="next" onclick='next()' alt="下一个">
             <img style="background:#4a4a4a;position:absolute;top:50%;left:5%;height:36px;z-index:99"  src="../src/img/icon/last.png" id="last" onclick='last()' alt="上一个">
         </div>
@@ -61,20 +66,27 @@ and open the template in the editor.
         </iframe>
         -->
         
-        <div id="scene" >
+        <div id="scene">
             <!--<a-scene embedded  arjs='sourceType: webcam; debugUIEnabled: false; trackingMethod: best'>-->
-            <a-scene>
+            <a-scene embedded>
                 <a-assets>
                     <a-asset-item id="akm" src="../src/model/Gun/ak47/scene.gltf"></a-asset-item>
-                    <a-asset-item id="aug" src="../src/model/Gun/aug/scene.gltf"></a-asset-item>
+                    <a-asset-item id="qbz" src="../src/model/Gun/aug/scene.gltf"></a-asset-item>
                     <a-asset-item id="scar" src="../src/model/Gun/scar/scene.gltf"></a-asset-item>
                     <a-asset-item id="ump9" src="../src/model/Gun/ump9/scene.gltf"></a-asset-item>
                     <a-asset-item id="m416" src="../src/model/Gun/m416/scene.gltf"></a-asset-item>
-                    <a-asset-item id="m4a1" src="../src/model/Gun/m16a4/scene.gltf"></a-asset-item>
+                    <a-asset-item id="m4a1" src="../src/model/Gun/m16a4/scene.gltf"></a-asset-item>                   
+                    <a-asset-item id="screen" src="../src/model/billboard/scene.gltf"></a-asset-item>
+                    <img id='ground' src='../src/img/background/battlegrounds.jpg'>
+                    <video id="video_akm" autoplay loop="true" src="../src/video/pubg/ak.mp4"></video>
+                    <video id="video_qbz" autoplay loop="true" src="../src/video/pubg/qbz.mp4"></video>
+                    <video id="video_m416" autoplay loop="true" src="../src/video/pubg/m416.mp4"></video>
+                    <video id="video_ump9" autoplay loop="true" src="../src/video/pubg/ump9.mp4"></video>
+                    <video id="video_scar" autoplay loop="true" src="../src/video/pubg/scal.mp4"></video>
+                    <video id="video_m4a1" autoplay loop="true" src="../src/video/pubg/m4a1.mp4"></video>               
+                    <!--
                     <a-asset-item id="vss" src="../src/model/Gun/vss/scene.gltf"></a-asset-item>                   
                     <a-asset-item id="m24" src="../src/model/Gun/m24/scene.gltf"></a-asset-item>
-                    <img id='ground' src='../src/img/background/battlegrounds.jpg'>
-                    <!--
                     <a-mixin id ="title" position="0.5 1 -1.6"  text="opacity:0;anchor:left;aligne:left;width: 5; font:../src/text/text.fnt; fontimage:../src/text/text.png"></a-mixin>
                     <a-mixin id="type" position="0.5 0.8 -1.6" text=" opacity:0;anchor:left;aligne:left;width: 3; font:../src/text/text.fnt; fontimage:../src/text/text.png"></a-entity>
                     <a-mixin id="content" position="0.5 0.65 -1.6" text="opacity:0;anchor:left;aligne:left; width: 2; font:../src/text/text.fnt; fontimage:../src/text/text.png"></a-entity>                                                            
@@ -83,14 +95,15 @@ and open the template in the editor.
                 
                 <a-sky src="#ground" radius="10000"></a-sky>
                 <a-sky color="#4a4a4a" radius="8000" opacity="0.5"></a-sky>
-                <a-entity id="#rig" position="0 0 0" rotation="0 0 0">
-                    <a-camera  position="0 1.5 0">           
+                <a-entity id="#rig" position="0 0 0" rotation="0 0 0">                  
+                    <a-camera  position="0 0 0">
+                        <a-entity id="Model" gltf-model="#akm"  position="0 -0.5 -3"  rotation="0 0 0"  scale="0.02 0.02 0.02" onclick="action()"></a-entity>                   
+                        <a-entity id="screen" gltf-model="#screen"  position="-3.2 -1.5 -8"  rotation="0 90 0" scale="0.2 0.2 0.2">
+                            <a-video id="video" src ="#video_akm" width="8" height="4.5" position="-0.5 15 0" rotation="0 90 0" ></a-video>
+                        </a-entity>
                         <!-- 
                             <a-animation attribute = "rotation"  direction="normal" dur = "5000" fill="both" to="0 360 0" repeat="indefinite"></a-animation>                        
-                        -->
-                        <a-entity id="Model" gltf-model="#akm"  position="0 -0.5 -3"  rotation="0 0 0"  scale="0.02 0.02 0.02" onclick="action()">
-                            
-                        </a-entity>  
+                        -->                                             
                         <a-light type="spot" position="2 -1.5 0" intensity="2" rotation="45 0 90">                                                    
                         </a-light>
                         <a-light type="spot" position="-2 -1.5 0"  intensity="2" rotation="0 -45 90">                                                          
