@@ -9,13 +9,12 @@
 
 - 02/08/2018 aframe/Test/Pubdessin/Editor.js addARpage()更新
 
-## 测试
+## 测试网页
 1. ###  [广交会](https://gaoxinteng.github.io/AR/aframe/Test/Demo.html)
 2. ### [测试](https://gaoxinteng.github.io/AR/aframe/Test/ARtest.html)
 3. ### [平台](https://gaoxinteng.github.io/AR/aframe/Test/index.html)
-4. ### [测试2](https://gaoxinteng.github.io/AR/test.php)
-
-
+4. ### [绝地求生](https://gaoxinteng.github.io/AR/Pubdessin/scene/html/new2.html)
+5. ### [足球](https://gaoxinteng.github.io/AR/Pubdessin/scene/html/football.html)
 
 **Bold** and _Italic_ and `Code` text
 
