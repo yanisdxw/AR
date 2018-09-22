@@ -66,7 +66,7 @@ var positTF = function(){
 };
 
 var tragetSelect = function(){
-    $('.tragetPlan').on("click touch", function () {
+    $('.tragetPlan').on("click", function () {
         var model = document.getElementById("traget");
         posFin=$(this).attr('position');
         model.setAttribute("position",{x: posFin.x,y:posFin.y,z:posFin.z});
