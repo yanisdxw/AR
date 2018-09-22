@@ -23,7 +23,7 @@ var initElement = function(){
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan5" width="1.2" height="0.4"  color ="#FFFFFF" opacity="0.05" position="0 0.6 2.6"  rotation="0 180 0"  ></a-plane>');
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan4" width="1.2" height="0.4"  color ="#FFFFFF" opacity="0.05" position="1.2 0.6 2.6"  rotation="0 180 0"  ></a-plane>');
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan6" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 0.6 2.6"  rotation="0 180 0"  ></a-plane>');  
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan8" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 1.0 2.59"  rotation="0 180 0"  ></a-plane>');   
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan8" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 1.0 2.6"  rotation="0 180 0"  ></a-plane>');   
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan7" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 1.0 2.6"  rotation="0 180 0"  ></a-plane>');
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan9" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 1.0 2.6"  rotation="0 180 0"  ></a-plane>');
     $("#goalModel").after('<a-ring id="traget" radius-inner="0.05" radius-outer="0.1" color ="#FFFFFF" opacity="1" position="0 0 2.7"  rotation="0 180 90"  ></a-ring>');
@@ -66,7 +66,7 @@ var positTF = function(){
 };
 
 var tragetSelect = function(){
-    $('.tragetPlan').on('click touch', function () {
+    $('.tragetPlan').on("click touch", function () {
         var model = document.getElementById("traget");
         posFin=$(this).attr('position');
         model.setAttribute("position",{x: posFin.x,y:posFin.y,z:posFin.z});
