@@ -25,13 +25,13 @@
                 
             </a-assets>
             <a-entity id="#rig" position="0 0 0" rotation="0 0 0">
-                    <a-camera  position="0 0 0">                        
-                        <a-marker  class='marker' type="pattern" markerhelpers='ture'  url="../src/marker/pattern-hiro.patt">                             
-                            <a-entity id="soccerModel" gltf-model="#soccer"  position="0 0 0"  rotation="0 0 0"  scale="0.01 0.01 0.01" ></a-entity>
-                            <a-entity id="goalModel"  gltf-model="#goal"  position="0 0 3" rotation="0 -90 0"  scale="0.0005 0.0005 0.0005 "></a-entity>                                                     
-                        </a-marker>
+                    <a-camera  position="0 -1.2 0">                             
                          <a-entity cursor="rayOrigin: mouse" fuse="true" maxDistance="30" timeout="500" ></a-entity>
                     </a-camera>
+                    <a-marker  class='marker' type="pattern" markerhelpers='ture'  url="../src/marker/pattern-hiro.patt">                             
+                        <a-entity id="soccerModel" gltf-model="#soccer"  position="0 0 0"  rotation="0 0 0"  scale="0.01 0.01 0.01" ></a-entity>
+                        <a-entity id="goalModel"  gltf-model="#goal"  position="0 0 3" rotation="0 -90 0"  scale="0.0005 0.0005 0.0005 "></a-entity>                                                     
+                    </a-marker>
             </a-entity>
             <a-entity></a-entity>
            
