@@ -16,7 +16,6 @@
 4. ### [绝地求生](https://gaoxinteng.github.io/AR/Pubdessin/scene/html/new2.html)
 5. ### [足球](https://gaoxinteng.github.io/AR/Pubdessin/scene/html/football.html)
 
-**Bold** and _Italic_ and `Code` text
 
 
 
