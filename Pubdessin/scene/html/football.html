@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>现实足球</title>
@@ -14,9 +9,9 @@ and open the template in the editor.
         <script src="../build/arjs/aframe-animation-component.min.js"></script>
         <script src="../build/arjs/aframe-extras.loaders.min.js"></script> 
         <script src="../build/jquery-3.3.1.min.js"></script>    
-        <script src="../build/football.js"></script>   
+        <script src="http://github.com/jquery/jquery-mobile/tree/1.5.0-alpha.1"></script>    
         <script>ARjs.Context.baseURL = '../../../three.js/'</script>
-     
+        <script src="../build/football.js"></script>   
     </head>
     
     <body>
@@ -36,8 +31,10 @@ and open the template in the editor.
                          <a-entity cursor="rayOrigin: mouse" fuse="true" maxDistance="30" timeout="500" ></a-entity>
                     </a-camera>
             </a-entity>
-            
+            <a-entity></a-entity>
+           
         </a-scene>
   
     </body>
 </html>
+
