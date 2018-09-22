@@ -24,7 +24,6 @@ $(document).ready(function(){
         evt_up = 'mouseup';
     }  
     initElement();
-    tragetSelect();
 });
 var initElement = function(){
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan2" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 0.2 2.6"  rotation="0 180 0"  ></a-plane>');
@@ -36,9 +35,9 @@ var initElement = function(){
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan8" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 1.0 2.6"  rotation="0 180 0"  ></a-plane>');   
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan7" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 1.0 2.6"  rotation="0 180 0"  ></a-plane>');
     $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan9" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 1.0 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after('<a-ring id="traget" radius-inner="0.05" radius-outer="0.1" color ="#FFFFFF" opacity="1" position="0 0 2.7"  rotation="0 180 90"  ></a-ring>');
-    console.log(evt_down)
-    $('#soccerModel').on(evt_down,positTF);
+    $("#goalModel").after('<a-ring id="traget" radius-inner="0.05" radius-outer="0.1" color ="#FFFFFF" opacity="1" position="0 0 2.7"  rotation="0 180 90"  ></a-ring>');  
+    $('#soccerModel').attr('onmousedown','positTF()');
+    $('.tragetPlan').attr('onmousedown','tragetSelect(this)');
 };
 var positTF = function(){
     
@@ -76,10 +75,8 @@ var positTF = function(){
     });
 };
 
-var tragetSelect = function(){
-    $( ".tragetPlan" ).on(evt_click, function () {
-        var model = document.getElementById("traget");
-        posFin=$(this).attr('position');
-        model.setAttribute("position",{x: posFin.x,y:posFin.y,z:posFin.z});
-    });
+var tragetSelect = function(obj){   
+    var traget = document.getElementById("traget");
+    posFin=obj.getAttribute('position');
+    traget.setAttribute("position",{x: posFin.x,y:posFin.y,z:posFin.z}); 
 };
