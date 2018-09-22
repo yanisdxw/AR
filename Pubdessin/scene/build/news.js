@@ -8,7 +8,7 @@ modelList = new Array(
         {src:"#m416",position: {x:0.5,y:0,z:-3},rotation:{x:0,y:270,z:0} ,scale:{x:0.015,y:0.015,z:0.015},onclick:'clicked()'},
         {src:"#m4a1",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.575,y:0.575,z:0.575},onclick:'clicked()'},
         {src:"#scar",position: {x:0,y:0,z:-3},rotation:{x:0,y:180,z:0} ,scale:{x:0.015,y:0.015,z:0.015},onclick:'clicked()'},
-        {src:"#qbz",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.15,y:0.0375,z:0.0375},onclick:'clicked()'},
+        {src:"#qbz",position: {x:0,y:0,z:-3},rotation:{x:0,y:90,z:0} ,scale:{x:0.0375,y:0.0375,z:0.0375},onclick:'clicked()'},
         {src:"#ump9",position: {x:0,y:0,z:-3},rotation:{x:0,y:0,z:0} ,scale:{x:0.01,y:0.01,z:0.01},onclick:'clicked()'},
         /**
         {src:"#m24",position: {x:0.5,y:0,z:-3},rotation:{x:0,y:-90,z:0} ,scale:{x:0.04,y:0.04,z:0.04},onclick:'clicked()'},
@@ -44,12 +44,20 @@ var isPC = function(){
     else{
         terminal="pc";
     }
-        /**
+    protection();
+    
+};
+
+
+var protection = function(){
+/**
+    if(terminal==="pc"){
         Source=document.body.firstChild.data;
         document.open();
         document.close();
         document.body.innerHTML=Source;
-        **/
+    };
+**/
 };
 
 var next = function(){    
@@ -130,7 +138,7 @@ var rotate = function(){
         var Model = document.getElementById('Model');
         rotation = Model.getAttribute("rotation");
         Model.setAttribute("rotation",{x:rotation.x,y:rotation.y+1,z:rotation.z});},10);
-    addEventListener(funct,function(){
+        addEventListener(funct,function(){
         clearInterval(ID);
     });
 };
@@ -148,5 +156,17 @@ var reduce = function(){
 };
 
 var action = function(){
-    return video();
+    zoom_video();
+};
+
+var zoom_video = function(){
+    var Video = document.getElementById("video");
+    var Camera = document.getElementByI
+    if(terminal==="mobile")
+        funct =  "touchend";
+    else
+        funct =  "mouseup";
+    
+    
+    pos_video = Video.getAtrriute("position");
 };
