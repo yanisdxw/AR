@@ -1,15 +1,20 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>现实足球</title>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       
         <script src="../build/arjs/aframe.min.js"></script>
         <script src="../build/arjs/aframe-ar.js"></script>
         <script src="../build/arjs/aframe-animation-component.min.js"></script>
         <script src="../build/arjs/aframe-extras.loaders.min.js"></script> 
         <script src="../build/jquery-3.3.1.min.js"></script>    
-        <script src="http://github.com/jquery/jquery-mobile/tree/1.5.0-alpha.1"></script>    
         <script>ARjs.Context.baseURL = '../../../three.js/'</script>
         <script src="../build/football.js"></script>   
     </head>
@@ -23,7 +28,7 @@
                 
             </a-assets>
             <a-entity id="#rig" position="0 0 0" rotation="0 0 0">
-                    <a-camera  position="0 0 0"  reverse-mouse-drag="true"  mouse-cursor>                        
+                    <a-camera  position="0 0 0">                        
                         <a-marker  class='marker' type="pattern" markerhelpers='ture'  url="../src/marker/pattern-hiro.patt">                             
                             <a-entity id="soccerModel" gltf-model="#soccer"  position="0 0 0"  rotation="0 0 0"  scale="0.01 0.01 0.01" ></a-entity>
                             <a-entity id="goalModel"  gltf-model="#goal"  position="0 0 3" rotation="0 -90 0"  scale="0.0005 0.0005 0.0005 "></a-entity>                                                     
