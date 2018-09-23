@@ -1,6 +1,4 @@
-
 var terminal;
-
 var posFin ={x:0,y:0,z:0};
 
 $(document).ready(function(){ 
@@ -10,25 +8,34 @@ $(document).ready(function(){
     else{
         terminal="pc";
     }  
-    console.log(terminal);
     initElement();
 });
 
 var initElement = function(){
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan2" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 0.2 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after(' <a-plane class="tragetPlan"id="tragetPlan1" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 0.2 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan3" width="1.2" height="0.4"  color ="#FFFFFF" opacity="0.05" position="-1.2 0.2 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan5" width="1.2" height="0.4"  color ="#FFFFFF" opacity="0.05" position="0 0.6 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan4" width="1.2" height="0.4"  color ="#FFFFFF" opacity="0.05" position="1.2 0.6 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan6" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 0.6 2.6"  rotation="0 180 0"  ></a-plane>');  
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan8" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 1.0 2.6"  rotation="0 180 0"  ></a-plane>');   
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan7" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 1.0 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan9" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 1.0 2.6"  rotation="0 180 0"  ></a-plane>');
-    $("#goalModel").after('<a-ring id="traget" radius-inner="0.05" radius-outer="0.1" color ="#FFFFFF" opacity="1" position="0 0 2.7"  rotation="0 180 90"  ></a-ring>');  
+    initGoal();
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan2" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 0.2 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan1" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 0.2 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan3" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 0.2 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan5" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 0.6 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan4" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 0.6 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan6" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 0.6 -0.4"  rotation="0 180 0"  ></a-plane>');  
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan8" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="0 1.0 -0.4"  rotation="0 180 0"  ></a-plane>');   
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan7" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="-1.2 1.0 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after(' <a-plane class="tragetPlan" id="tragetPlan9" width="1.2" height="0.4" color ="#FFFFFF" opacity="0.05" position="1.2 1.0 -0.4"  rotation="0 180 0"  ></a-plane>');
+    $("#goalModel").after('<a-ring id="traget" radius-inner="0.05" radius-outer="0.1" color ="#FFFFFF" opacity="1" position="0 0 -0.3"  rotation="0 180 90"  ></a-ring>');  
     $('#soccerModel').bind('mousedown',positTF);
-    $('.tragetPlan').bind('mouseup',function(){
+    $('.tragetPlan').bind('mousedown',function(){
         setTimeout(tragetSelect(this),100);
     });
+};
+
+var initGoal = function(){
+    var posX = Math.random()*2-1;
+    var posZ = Math.random()*7+3;
+    var pos = {x:posX,y:0,z:posZ};
+    console.log(pos);
+    var goal = document.getElementById('goalMix');
+    goal.setAttribute("position",pos);
 };
 
 var positTF = function(){
@@ -68,5 +75,6 @@ var positTF = function(){
 var tragetSelect = function(obj){   
     var traget = document.getElementById("traget");
     posFin=obj.getAttribute('position');
+    
     traget.setAttribute("position",{x: posFin.x,y:posFin.y,z:posFin.z}); 
 };
