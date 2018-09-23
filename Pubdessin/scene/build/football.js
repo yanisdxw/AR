@@ -100,23 +100,4 @@ var shot = function(){
     $('#buttonShot').bind('mouseup',function(){
         $('#buttonShot').hide();});
 };
-/*
-    niveau = 9;
-    var width_Plan ='width = "'+3.6/Math.sqrt(niveau)+'" ';
-    var height_Plan ='height = "'+1.2/Math.sqrt(niveau)+'" ';
-     ar info_tragetPlan = {Class:'class="tragetPlan" ', width_tragetPlan:'width="1.2" ',height_tragetPlan :'height="0.4" ',color:'color = "#FFFFFF" ',opacity:'pacity="0.05" ',rotation: 'rotation="0 180 0" '};
-    var tragetPlan = '<a-plane '+info_tragetPlan.Class+info_tragetPlan.width_tragetPlan+info_tragetPlan.height_tragetPlan+info_tragetPlan.color+info_tragetPlan.opacity+info_tragetPlan.rotation;
-    for(var i=0;i<9;i++){
-        var id = 'id="'+"tragetPlan"+i+'" ';        
-        var tragetPlan = tragetPlan+id+'></a-plane>';
-        var positionTraget = 'position="'+
-        $("#goalModel").after(tragetPlan);
-        $("#goalModel").attr("id",id);
-    }
-   
-    for(var i=0;i<Math.sqrt(niveau);i++){
-        for(var j=0;j<Math.sqrt(niveau);j++){
-            var pos
-        }
-    }
- 
+
